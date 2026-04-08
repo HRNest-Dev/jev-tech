@@ -11,7 +11,7 @@ const footerLinks = {
   ],
   company: [
     { name: "About Us", href: "#about" },
-    { name: "Our Work", href: "#portfolio" },
+    { name: "StaffDemHR", href: "#" },
     { name: "Careers", href: "#" },
     { name: "Contact", href: "#contact" },
   ],
@@ -33,13 +33,8 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-16">
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
-              <a href="#home" className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">J</span>
-                </div>
-                <span className="text-xl font-bold text-white">
-                  Jev<span className="text-blue-400">Tech</span>
-                </span>
+              <a href="#home" className="flex items-center mb-4">
+                <img src="/logo-white.svg" alt="Jev Technology" className="h-10" />
               </a>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 Empowering organizations with cutting-edge software solutions.

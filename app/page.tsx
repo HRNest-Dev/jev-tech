@@ -2,8 +2,8 @@ import {
   Navigation,
   Hero,
   About,
+  FlagshipProduct,
   Services,
-  Portfolio,
   Contact,
   Footer,
 } from "@/components/sections";
@@ -15,8 +15,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <FlagshipProduct />
         <Services />
-        <Portfolio />
         <Contact />
       </main>
       <Footer />

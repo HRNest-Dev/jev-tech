@@ -59,7 +59,7 @@ export default function Hero() {
               </svg>
             </a>
             <a
-              href="#portfolio"
+              href="#services"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-full bg-transparent border-2 border-blue-500 text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300"
             >
               View Our Work
@@ -67,10 +67,10 @@ export default function Hero() {
           </div>
 
           {/* Stats - With clear, visible colors */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 border-t border-[#27272a]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-10 pb-8 border-t border-[#27272a]">
             {[
-              { value: "50+", label: "Projects Delivered" },
-              { value: "30+", label: "Happy Clients" },
+              { value: "6", label: "Projects Delivered" },
+              { value: "7", label: "Happy Clients" },
               { value: "5+", label: "Years Experience" },
               { value: "99%", label: "Client Satisfaction" },
             ].map((stat, index) => (

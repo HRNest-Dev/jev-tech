@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 180 44">
+  <defs>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#9333ea"/>
+    </linearGradient>
+  </defs>
+  <!-- Icon box -->
+  <rect x="0" y="2" width="40" height="40" rx="10" fill="url(#iconGrad)"/>
+  <text x="20" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="24" fill="white">J</text>
+  <!-- "Jev" text -->
+  <text x="50" y="30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="24" fill="white">Jev</text>
+  <!-- "Tech" text -->
+  <text x="90" y="30" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="24" fill="#60a5fa">Tech</text>
+</svg>

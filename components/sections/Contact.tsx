@@ -120,7 +120,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className='font-semibold mb-1'>Email Us</h4>
-                  <p className='text-white/80'>hello@jevtechnology.com</p>
+                  <p className='text-white/80'>jevtechnology8@gmail.com</p>
                 </div>
               </div>
 

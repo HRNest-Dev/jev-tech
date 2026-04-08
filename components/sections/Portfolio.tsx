@@ -5,9 +5,9 @@ import { Container } from "../ui";
 const projects = [
   {
     title: "StaffDemHR",
-    category: "HR & Payroll",
-    description: "A comprehensive HR management system serving 50+ organizations across Africa with payroll, leave management, and employee engagement features.",
-    tags: ["React", "Laravel", "MySQL", "AWS"],
+    category: "Flagship Product",
+    description: "Our flagship HR platform helping organizations across Africa streamline end-to-end payroll processing, salary disbursement, leave management, and workforce analytics. A core product of Jev Technology.",
+    tags: ["React", "Laravel", "MySQL", "AWS", "Monnify"],
     gradient: "from-blue-600 to-cyan-500",
     accentColor: "text-blue-600",
     bgAccent: "bg-blue-100",

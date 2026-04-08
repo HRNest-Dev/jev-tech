@@ -7,7 +7,6 @@ const navLinks = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
   { name: "Services", href: "#services" },
-  { name: "Portfolio", href: "#portfolio" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -34,13 +33,12 @@ export default function Navigation() {
       <Container>
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
-              <span className="text-white font-bold text-xl">J</span>
-            </div>
-            <span className={`text-xl font-bold ${isScrolled ? "text-slate-900" : "text-white"}`}>
-              Jev<span className="text-blue-500">Tech</span>
-            </span>
+          <a href="#home" className="flex items-center">
+            <img
+              src={isScrolled ? "/logo.svg" : "/logo-white.svg"}
+              alt="Jev Technology"
+              className="h-10"
+            />
           </a>
 
           {/* Desktop Navigation */}
