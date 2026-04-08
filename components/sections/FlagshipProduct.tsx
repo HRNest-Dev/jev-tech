@@ -117,22 +117,6 @@ export default function FlagshipProduct() {
                   )
                 )}
               </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6">
-                <div>
-                  <div className="text-2xl font-bold text-blue-400">5+</div>
-                  <div className="text-sm text-slate-400">Organizations</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-purple-400">200+</div>
-                  <div className="text-sm text-slate-400">Employees Managed</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-emerald-400">Growing</div>
-                  <div className="text-sm text-slate-400">Across Africa</div>
-                </div>
-              </div>
             </div>
 
             {/* Right - Features Grid */}

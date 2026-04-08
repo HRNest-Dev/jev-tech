@@ -33,6 +33,13 @@ export const metadata: Metadata = {
     description:
       "Empowering organizations with cutting-edge web development, mobile apps, and software consultancy.",
     type: "website",
+    siteName: "Jev Technology",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jev Technology | Software Development & Digital Solutions",
+    description:
+      "Empowering organizations with cutting-edge web development, mobile apps, and software consultancy.",
   },
 };
 
