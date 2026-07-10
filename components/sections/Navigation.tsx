@@ -35,9 +35,9 @@ export default function Navigation() {
           {/* Logo */}
           <a href="#home" className="flex items-center">
             <img
-              src={isScrolled ? "/logo.svg" : "/logo-white.svg"}
+              src={isScrolled ? "/logo2.png" : "/logo2-white.png"}
               alt="Jev Technology"
-              className="h-10"
+              className="h-16"
             />
           </a>
 

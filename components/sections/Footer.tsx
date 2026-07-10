@@ -34,7 +34,7 @@ export default function Footer() {
             {/* Brand */}
             <div className="col-span-2 md:col-span-1">
               <a href="#home" className="flex items-center mb-4">
-                <img src="/logo-white.svg" alt="Jev Technology" className="h-10" />
+                <img src="/logo2-white.png" alt="Jev Technology" className="h-16" />
               </a>
               <p className="text-slate-400 text-sm leading-relaxed mb-6">
                 Empowering organizations with cutting-edge software solutions.

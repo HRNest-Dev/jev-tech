@@ -75,7 +75,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Jev Technology",
               url: "https://jevtechnology.com",
-              logo: "https://jevtechnology.com/logo.svg",
+              logo: "https://jevtechnology.com/logo2.png",
               description:
                 "Software development company empowering organizations with web development, mobile apps, HR & payroll systems, and cloud solutions across Africa.",
               email: "jevtechnology8@gmail.com",
