@@ -1,5 +1,5 @@
 import { processSteps } from "@/content/process";
-import { Container, Section, SectionHeading } from "@/components/ui";
+import { ButtonLink, Container, Section, SectionHeading } from "@/components/ui";
 
 export default function Process() {
   return (
@@ -29,6 +29,10 @@ export default function Process() {
             </li>
           ))}
         </ol>
+
+        <ButtonLink href="/how-we-work" variant="link-dark" arrow className="mt-14">
+          See how we work in detail
+        </ButtonLink>
       </Container>
     </Section>
   );

@@ -5,6 +5,8 @@ import { ButtonLink, Container, Section, SectionHeading } from "@/components/ui"
 import PageHero from "@/components/page/PageHero";
 import Photo from "@/components/page/Photo";
 import Process from "@/components/home/Process";
+import TeamSection from "@/components/page/TeamSection";
+import { services } from "@/content/services";
 
 export const metadata: Metadata = {
   title: "Company",
@@ -14,6 +16,15 @@ export const metadata: Metadata = {
 };
 
 export default function CompanyPage() {
+  // Shown once the founding year or city is filled in (lib/site.ts).
+  const facts = [
+    site.founded && { label: "Founded", value: site.founded },
+    { label: "Based in", value: site.city ? `${site.city}, ${site.location}` : site.location },
+    { label: "Services", value: String(services.length) },
+    { label: "Own product", value: "StaffDem" },
+  ].filter((f): f is { label: string; value: string } => Boolean(f));
+  const showFacts = Boolean(site.founded || site.city);
+
   return (
     <>
       <PageHero
@@ -47,6 +58,18 @@ export default function CompanyPage() {
             </p>
           </div>
         </Container>
+        {showFacts && (
+          <Container>
+            <dl className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-line bg-line lg:grid-cols-4">
+              {facts.map((f) => (
+                <div key={f.label} className="bg-canvas p-6 sm:p-8">
+                  <dt className="font-mono text-caption uppercase text-muted">{f.label}</dt>
+                  <dd className="mt-3 text-h3 font-semibold">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </Container>
+        )}
       </Section>
 
       {/* Principles */}
@@ -95,6 +118,8 @@ export default function CompanyPage() {
         </Container>
       </Section>
 
+      <TeamSection />
+
       <Process />
 
       {/* Engineering */}
@@ -139,8 +164,8 @@ export default function CompanyPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <ButtonLink href={`mailto:${site.email}?subject=Careers%20at%20JEV`} variant="secondary" arrow>
-                Get in touch
+              <ButtonLink href="/careers" variant="secondary" arrow>
+                Careers at JEV
               </ButtonLink>
               <ButtonLink href={startProjectHref} variant="outline">
                 Start a Project

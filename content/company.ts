@@ -30,3 +30,15 @@ export const audiences = [
   { title: "Startups", body: "Turning a product idea into a working, launchable first version." },
   { title: "Institutions & organizations", body: "Digitizing processes and serving members, students or the public online." },
 ];
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  group: "Leadership" | "Engineering" | "Product & design" | "Operations";
+  /** Path under /public, e.g. "/team/jane-doe.jpg" (square, at least 800px). */
+  photo?: string;
+  linkedin?: string;
+};
+
+/** Add real team members here; the Team section on /company appears once this has entries. */
+export const team: TeamMember[] = [];
