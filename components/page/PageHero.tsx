@@ -23,7 +23,7 @@ export default function PageHero({ eyebrow, title, description, actions, breadcr
         <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-12 lg:items-end lg:gap-12">
           <div className="lg:col-span-7">
             {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-            <h1 className="mt-5 animate-rise text-h1 font-semibold text-balance">{title}</h1>
+            <h1 className="mt-5 text-h1 font-semibold text-balance">{title}</h1>
           </div>
           {(description || actions) && (
             <div className="animate-rise [animation-delay:120ms] lg:col-span-5">

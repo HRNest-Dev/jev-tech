@@ -11,7 +11,7 @@ export default function Hero() {
           <p className="animate-rise font-mono text-caption uppercase text-brand-700">
             Digital product &amp; software engineering
           </p>
-          <h1 className="mt-6 animate-rise text-display font-semibold text-balance [animation-delay:80ms]">
+          <h1 className="mt-6 text-display font-semibold text-balance">
             Technology built around your business.
           </h1>
         </div>
