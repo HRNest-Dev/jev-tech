@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useId, useState, type FormEvent } from "react";
 import { EMAIL_PATTERN, subscribeToInsights } from "@/lib/enquiries";
 import { track } from "@/lib/analytics";
@@ -87,11 +86,7 @@ export default function SubscribeCard({ className }: { className?: string }) {
                 </p>
               ) : (
                 <p id={`${id}-note`} className="mt-3 text-xs text-on-dark-muted">
-                  We&rsquo;ll only use your email to send new articles. See our{" "}
-                  <Link href="/privacy" className="underline underline-offset-2 hover:text-white">
-                    Privacy Policy
-                  </Link>
-                  .
+                  We&rsquo;ll only use your email to send new articles.
                 </p>
               )}
             </form>

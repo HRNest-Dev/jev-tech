@@ -188,11 +188,7 @@ export default function ProjectForm({ initialServices = [] }: { initialServices?
 
       <div className="flex flex-col-reverse gap-5 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-sm text-sm text-muted">
-          We only use your details to respond to this enquiry. See our{" "}
-          <Link href="/privacy" className="underline underline-offset-2 hover:text-fg">
-            Privacy Policy
-          </Link>
-          .
+          We only use your details to respond to this enquiry.
         </p>
         <Button type="submit" size="lg" arrow={!submitting} disabled={submitting} className="w-full sm:w-auto">
           {submitting ? "Submitting…" : "Submit Project"}

@@ -70,11 +70,6 @@ export default function Footer() {
           </p>
           <ul className="flex gap-6">
             <li>
-              <Link href="/privacy" className="transition-colors hover:text-white">
-                Privacy Policy
-              </Link>
-            </li>
-            <li>
               <Link href="/terms" className="transition-colors hover:text-white">
                 Terms of Use
               </Link>

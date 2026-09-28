@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useRef, useState, type FormEvent } from "react";
 import { contactTopics } from "@/content/enquiry";
@@ -118,13 +117,7 @@ export default function ContactForm({ initialTopic = "general" }: { initialTopic
       </div>
 
       <div className="flex flex-col-reverse gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-muted">
-          We only use your details to respond to this message. See our{" "}
-          <Link href="/privacy" className="underline underline-offset-2 hover:text-fg">
-            Privacy Policy
-          </Link>
-          .
-        </p>
+        <p className="text-xs text-muted">We only use your details to respond to this message.</p>
         <Button type="submit" size="lg" arrow={!submitting} disabled={submitting} className="w-full sm:w-auto">
           {submitting ? "Sending…" : "Send message"}
         </Button>
