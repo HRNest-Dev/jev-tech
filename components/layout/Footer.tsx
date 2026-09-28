@@ -68,7 +68,18 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} {site.legalName}. All rights reserved.
           </p>
-          <p>Designed and engineered in-house.</p>
+          <ul className="flex gap-6">
+            <li>
+              <Link href="/privacy" className="transition-colors hover:text-white">
+                Privacy Policy
+              </Link>
+            </li>
+            <li>
+              <Link href="/terms" className="transition-colors hover:text-white">
+                Terms of Use
+              </Link>
+            </li>
+          </ul>
         </div>
       </Container>
     </footer>
