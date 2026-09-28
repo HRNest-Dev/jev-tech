@@ -41,4 +41,10 @@ export async function submitContactEnquiry(data: ContactEnquiry): Promise<Submit
   return simulate();
 }
 
+/** Insights email subscription (e.g. a mailing-list provider or your own API). */
+export async function subscribeToInsights(email: string): Promise<SubmitResult> {
+  void email;
+  return simulate();
+}
+
 export const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;

@@ -3,12 +3,13 @@ import { publishedInsights, summarize } from "@/content/insights";
 import { Container, Section } from "@/components/ui";
 import PageHero from "@/components/page/PageHero";
 import InsightsBrowser from "@/components/page/InsightsBrowser";
+import SubscribeCard from "@/components/forms/SubscribeCard";
 
 export const metadata: Metadata = {
   title: "Insights",
   description:
     "Practical thinking on software, product design and technology for businesses — from the team at JEV Technologies.",
-  alternates: { canonical: "/insights" },
+  alternates: { canonical: "/insights", types: { "application/rss+xml": "/insights/rss.xml" } },
 };
 
 export default function InsightsPage() {
@@ -23,6 +24,7 @@ export default function InsightsPage() {
       <Section className="pt-0!" aria-label="Articles">
         <Container>
           <InsightsBrowser insights={publishedInsights.map(summarize)} />
+          <SubscribeCard className="mt-20" />
         </Container>
       </Section>
     </>

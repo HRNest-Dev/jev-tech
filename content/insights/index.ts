@@ -1,4 +1,4 @@
-import type { Insight, InsightSummary } from "./types";
+import { categorySlug, insightCategories, type Insight, type InsightSummary } from "./types";
 import { whenToAutomate } from "./articles/when-to-automate-an-internal-process";
 import { saasThatScales } from "./articles/building-a-saas-product-that-scales";
 import { employeeSoftware } from "./articles/designing-software-employees-want-to-use";
@@ -30,6 +30,15 @@ const insights: Insight[] = [
 export const publishedInsights = insights
   .filter((i) => i.status === "published")
   .sort((a, b) => b.date.localeCompare(a.date));
+
+/** Categories that have at least one published article. */
+export function activeCategories() {
+  return insightCategories.filter((c) => publishedInsights.some((i) => i.category === c));
+}
+
+export function getCategoryBySlug(slug: string) {
+  return activeCategories().find((c) => categorySlug(c) === slug);
+}
 
 export function getInsight(slug: string) {
   return publishedInsights.find((i) => i.slug === slug);
