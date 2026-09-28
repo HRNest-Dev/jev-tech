@@ -1,44 +1,74 @@
-"use client";
+import Link from "next/link";
+import type { ButtonHTMLAttributes, ComponentProps, ReactNode } from "react";
+import { cn } from "@/lib/cn";
 
-import { ButtonHTMLAttributes, ReactNode } from "react";
+type Variant = "primary" | "secondary" | "outline" | "outline-dark" | "link" | "link-dark";
+type Size = "md" | "lg";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: "primary" | "secondary" | "outline";
-  size?: "sm" | "md" | "lg";
+type StyleProps = {
+  variant?: Variant;
+  size?: Size;
+  arrow?: boolean;
+  className?: string;
+};
+
+const base =
+  "group inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-[background-color,border-color,color,box-shadow] duration-200 ease-out-quint disabled:pointer-events-none disabled:opacity-60";
+
+const variants: Record<Variant, string> = {
+  primary: "rounded-full bg-brand-500 text-ink hover:bg-brand-400 shadow-[inset_0_-1px_0_rgb(0_0_0/0.12)]",
+  secondary: "rounded-full bg-ink text-white hover:bg-graphite-700",
+  outline: "rounded-full border border-line-strong text-fg hover:border-fg hover:bg-surface",
+  "outline-dark": "rounded-full border border-graphite-600 text-on-dark hover:border-on-dark hover:bg-graphite-800",
+  link: "text-fg underline-offset-4 hover:underline",
+  "link-dark": "text-on-dark underline-offset-4 hover:underline",
+};
+
+const sizes: Record<Size, string> = {
+  md: "h-11 px-5 text-[0.9375rem]",
+  lg: "h-13 px-7 text-base",
+};
+
+export function buttonClasses({ variant = "primary", size = "md", className }: StyleProps = {}) {
+  const isLink = variant === "link" || variant === "link-dark";
+  return cn(base, variants[variant], !isLink && sizes[size], className);
 }
 
-export default function Button({
-  children,
-  variant = "primary",
-  size = "md",
-  className = "",
-  ...props
-}: ButtonProps) {
-  const baseStyles =
-    "inline-flex items-center justify-center font-semibold rounded-full transition-all duration-300 cursor-pointer";
-
-  const variants = {
-    primary:
-      "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40",
-    secondary:
-      "bg-slate-100 text-slate-900 hover:bg-slate-200",
-    outline:
-      "bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white",
-  };
-
-  const sizes = {
-    sm: "px-5 py-2.5 text-sm",
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
-  };
-
+function Arrow() {
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      {...props}
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 16 16"
+      className="size-4 transition-transform duration-200 ease-out-quint group-hover:translate-x-0.5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
+      <path d="M3 8h10M9 4l4 4-4 4" />
+    </svg>
+  );
+}
+
+type ButtonProps = StyleProps & ButtonHTMLAttributes<HTMLButtonElement> & { children: ReactNode };
+
+export function Button({ variant, size, arrow, className, children, type = "button", ...props }: ButtonProps) {
+  return (
+    <button type={type} className={buttonClasses({ variant, size, className })} {...props}>
       {children}
+      {arrow && <Arrow />}
     </button>
+  );
+}
+
+type ButtonLinkProps = StyleProps & Omit<ComponentProps<typeof Link>, "className"> & { children: ReactNode };
+
+export function ButtonLink({ variant, size, arrow, className, children, ...props }: ButtonLinkProps) {
+  return (
+    <Link className={buttonClasses({ variant, size, className })} {...props}>
+      {children}
+      {arrow && <Arrow />}
+    </Link>
   );
 }

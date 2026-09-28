@@ -1,134 +1,161 @@
 @import "tailwindcss";
 
-:root {
-  /* Jev Technology Color Palette - Enhanced Visibility */
-  --primary: #3b82f6;
-  --primary-light: #60a5fa;
-  --secondary: #a855f7;
-  --accent: #22d3ee;
-  --background: #0a0a0a;
-  --background-light: #171717;
-  --background-card: #1a1a1a;
-  --foreground: #ffffff;
-  --foreground-muted: #a1a1aa;
-  --border: #27272a;
+/*
+ * JEV Technology design tokens.
+ * Brand green is sampled from the logo mark. Everything else is neutral
+ * graphite so the single accent carries the brand.
+ */
+@theme {
+  /* Neutrals */
+  --color-ink: #0b0f0e;
+  --color-graphite-950: #0b0f0e;
+  --color-graphite-900: #111615;
+  --color-graphite-800: #1a201f;
+  --color-graphite-700: #262e2c;
+  --color-graphite-600: #3a4341;
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #a855f7 50%, #22d3ee 100%);
-  --gradient-text: linear-gradient(90deg, #60a5fa, #c084fc, #22d3ee);
+  --color-canvas: #ffffff;
+  --color-surface: #f5f7f6;
+  --color-surface-strong: #edf0ee;
+  --color-line: #e3e7e5;
+  --color-line-strong: #cfd5d2;
+  --color-fg: #0b0f0e;
+  --color-muted: #5e6764;
+  --color-on-dark: #f5f7f6;
+  --color-on-dark-muted: #9aa3a0;
+  --color-line-dark: #262e2c;
+
+  /* Brand — 500 is the logo green. Use 700 for green text on light surfaces
+     and 400 for green text on dark surfaces (both pass WCAG AA). */
+  --color-brand-50: #edfbf1;
+  --color-brand-100: #d3f6dd;
+  --color-brand-200: #a8ecbc;
+  --color-brand-300: #6fdd92;
+  --color-brand-400: #4ade80;
+  --color-brand-500: #2cc65c;
+  --color-brand-600: #1fa64a;
+  --color-brand-700: #177a3b;
+  --color-brand-800: #146232;
+  --color-brand-900: #114f2a;
+  --color-brand-950: #07301a;
+
+  /* Status */
+  --color-success: #177a3b;
+  --color-danger: #c62828;
+
+  /* Typography scale (fluid) */
+  --text-display: clamp(2.75rem, 1.55rem + 4.8vw, 5rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.04em;
+  --text-h1: clamp(2.25rem, 1.5rem + 3vw, 3.75rem);
+  --text-h1--line-height: 1.05;
+  --text-h1--letter-spacing: -0.035em;
+  --text-h2: clamp(2rem, 1.45rem + 2.2vw, 3rem);
+  --text-h2--line-height: 1.08;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h3: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h4: 1.125rem;
+  --text-h4--line-height: 1.35;
+  --text-h4--letter-spacing: -0.01em;
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.4;
+  --text-caption--letter-spacing: 0.08em;
+
+  /* Layout */
+  --container-site: 80rem;
+  --container-prose: 40rem;
+
+  /* Motion */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-rise: rise 0.8s var(--ease-out-quint) both;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-* {
-  scroll-behavior: smooth;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
-}
-
-/* Gradient text utility - Enhanced visibility */
-.gradient-text {
-  background: linear-gradient(90deg, #60a5fa, #c084fc, #22d3ee);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Gradient border utility */
-.gradient-border {
-  position: relative;
-  background: #1a1a1a;
-  border-radius: 1rem;
-}
-
-.gradient-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 1rem;
-  padding: 1px;
-  background: linear-gradient(135deg, #3b82f6 0%, #a855f7 50%, #22d3ee 100%);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Glow effect */
-.glow {
-  box-shadow: 0 0 40px rgba(59, 130, 246, 0.4), 0 0 80px rgba(168, 85, 247, 0.3);
-}
-
-/* Animation keyframes */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-@keyframes fade-in-up {
+/*
+ * Scroll reveal: a CSS scroll-driven animation, so it needs no JavaScript.
+ * Browsers without `animation-timeline` support, and anyone who prefers
+ * reduced motion, simply see the content without animation.
+ */
+@keyframes reveal-in {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(28px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+@layer components {
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        animation: reveal-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 55%;
+      }
+    }
+  }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keep anchor targets clear of the fixed navbar */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
 
-.animate-delay-200 {
-  animation-delay: 200ms;
-}
+  body {
+    background: var(--color-canvas);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
 
-.animate-delay-400 {
-  animation-delay: 400ms;
-}
+  ::selection {
+    background: var(--color-brand-200);
+    color: var(--color-ink);
+  }
 
-.animate-delay-600 {
-  animation-delay: 600ms;
-}
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0a0a0a;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
