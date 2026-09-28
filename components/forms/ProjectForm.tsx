@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import { ATTACHMENT_ACCEPT, MAX_ATTACHMENT_MB, budgets, projectTypes, timelines } from "@/content/enquiry";
 import { EMAIL_PATTERN, submitProjectEnquiry, type ProjectEnquiry } from "@/lib/enquiries";
+import { track } from "@/lib/analytics";
 import { Button, ButtonLink, Choice, Field, FieldError, Input, TextArea } from "@/components/ui";
 
 type Errors = Partial<Record<"services" | "description" | "name" | "email" | "attachment" | "form", string>>;
@@ -23,6 +24,7 @@ export default function ProjectForm({ initialServices = [] }: { initialServices?
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState<ProjectEnquiry | null>(null);
+  const started = useRef(false);
 
   const toggleService = (value: string) =>
     setServices((prev) => (prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]));
@@ -67,6 +69,7 @@ export default function ProjectForm({ initialServices = [] }: { initialServices?
     const result = await submitProjectEnquiry(data);
     setSubmitting(false);
     if (result.ok) {
+      track("form_submit", { form: "project", services: data.services.join(","), budget: data.budget || undefined });
       setDone(data);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
@@ -80,7 +83,17 @@ export default function ProjectForm({ initialServices = [] }: { initialServices?
     errors[key] ? { "aria-invalid": true as const, "aria-describedby": `${key}-error` } : {};
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-14">
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      onFocus={() => {
+        if (started.current) return;
+        started.current = true;
+        track("form_start", { form: "project" });
+      }}
+      noValidate
+      className="space-y-14"
+    >
       <Step number={1} title="What can we help you with?" hint="Choose all that apply.">
         <fieldset data-error={Boolean(errors.services)} aria-describedby={errors.services ? "services-error" : undefined}>
           <legend className="sr-only">Project type</legend>
@@ -175,7 +188,11 @@ export default function ProjectForm({ initialServices = [] }: { initialServices?
 
       <div className="flex flex-col-reverse gap-5 border-t border-line pt-8 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-sm text-sm text-muted">
-          We only use your details to respond to this enquiry. We&rsquo;ll never share them.
+          We only use your details to respond to this enquiry. See our{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-fg">
+            Privacy Policy
+          </Link>
+          .
         </p>
         <Button type="submit" size="lg" arrow={!submitting} disabled={submitting} className="w-full sm:w-auto">
           {submitting ? "Submitting…" : "Submit Project"}

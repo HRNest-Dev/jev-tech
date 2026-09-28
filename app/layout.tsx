@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/page/JsonLd";
+import AnalyticsEvents from "@/components/layout/AnalyticsEvents";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <AnalyticsEvents />
         <JsonLd
           data={{
             "@context": "https://schema.org",

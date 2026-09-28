@@ -1,9 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import { contactTopics } from "@/content/enquiry";
 import { EMAIL_PATTERN, submitContactEnquiry } from "@/lib/enquiries";
+import { track } from "@/lib/analytics";
 import { Button, Field, Input, Select, TextArea } from "@/components/ui";
 
 type Errors = Partial<Record<"name" | "email" | "message" | "form", string>>;
@@ -19,6 +21,7 @@ export default function ContactForm({ initialTopic = "general" }: { initialTopic
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
   const [sentTo, setSentTo] = useState<string | null>(null);
+  const started = useRef(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,7 +52,10 @@ export default function ContactForm({ initialTopic = "general" }: { initialTopic
     setSubmitting(true);
     const result = await submitContactEnquiry(data);
     setSubmitting(false);
-    if (result.ok) setSentTo(data.name);
+    if (result.ok) {
+      track("form_submit", { form: "contact", topic: data.topic });
+      setSentTo(data.name);
+    }
     else setErrors({ ...result.fieldErrors, form: result.message });
   };
 
@@ -74,7 +80,16 @@ export default function ContactForm({ initialTopic = "general" }: { initialTopic
     errors[key] ? { "aria-invalid": true as const, "aria-describedby": `${key}-error` } : {};
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
+    <form
+      onSubmit={handleSubmit}
+      onFocus={() => {
+        if (started.current) return;
+        started.current = true;
+        track("form_start", { form: "contact" });
+      }}
+      noValidate
+      className="grid gap-5 sm:grid-cols-2"
+    >
       <Field label="Topic" htmlFor="topic" className="sm:col-span-2">
         <Select id="topic" name="topic" defaultValue={initialTopic}>
           {contactTopics.map((t) => (
@@ -103,7 +118,13 @@ export default function ContactForm({ initialTopic = "general" }: { initialTopic
       </div>
 
       <div className="flex flex-col-reverse gap-4 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs text-muted">We only use your details to respond to this message.</p>
+        <p className="text-xs text-muted">
+          We only use your details to respond to this message. See our{" "}
+          <Link href="/privacy" className="underline underline-offset-2 hover:text-fg">
+            Privacy Policy
+          </Link>
+          .
+        </p>
         <Button type="submit" size="lg" arrow={!submitting} disabled={submitting} className="w-full sm:w-auto">
           {submitting ? "Sending…" : "Send message"}
         </Button>
