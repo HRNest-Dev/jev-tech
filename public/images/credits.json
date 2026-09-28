@@ -1,0 +1,218 @@
+[
+  {
+    "file": "company-hero.jpg",
+    "pexelsId": 8547344,
+    "pageUrl": "https://www.pexels.com/photo/people-working-at-the-office-8547344/",
+    "photographer": "Edmond Dantès",
+    "alt": "Four colleagues working together at a shared desk in a bright, modern office",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "company-story.jpg",
+    "pexelsId": 9301243,
+    "pageUrl": "https://www.pexels.com/photo/people-having-a-meeting-9301243/",
+    "photographer": "Mikhail Nilov",
+    "alt": "Team member writing a plan on a flip-chart whiteboard while colleagues look on during a meeting",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "services-hero.jpg",
+    "pexelsId": 8547282,
+    "pageUrl": "https://www.pexels.com/photo/people-looking-at-the-screen-of-a-laptop-8547282/",
+    "photographer": "Edmond Dantès",
+    "alt": "Product team reviewing work together on a laptop in a light-filled office",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "corporate-websites.jpg",
+    "pexelsId": 6744352,
+    "pageUrl": "https://www.pexels.com/photo/man-using-gray-laptop-6744352/",
+    "photographer": "Ola Dapo",
+    "alt": "Professional focused on a laptop at his desk in a bright office",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "ecommerce.jpg",
+    "pexelsId": 5198284,
+    "pageUrl": "https://www.pexels.com/photo/person-holding-brown-credit-card-and-cellphone-5198284/",
+    "photographer": "Tima Miroshnichenko",
+    "alt": "Close-up of a hand holding a payment card beside a smartphone for an online purchase",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "custom-software.jpg",
+    "pexelsId": 5058917,
+    "pageUrl": "https://www.pexels.com/photo/man-typing-on-a-computer-5058917/",
+    "photographer": "Thirdman",
+    "alt": "Office professional working in business software on a desktop computer",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "web-applications.jpg",
+    "pexelsId": 577210,
+    "pageUrl": "https://www.pexels.com/photo/close-up-photo-of-gray-laptop-577210/",
+    "photographer": "Lukas Blazek",
+    "alt": "Laptop displaying an analytics dashboard with charts and data tables",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "mobile-apps.jpg",
+    "pexelsId": 7223927,
+    "pageUrl": "https://www.pexels.com/photo/close-up-shot-of-a-person-holding-a-smartphone-7223927/",
+    "photographer": "cottonbro studio",
+    "alt": "Hands holding and using an app on a smartphone",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "ui-ux-design.jpg",
+    "pexelsId": 196646,
+    "pageUrl": "https://www.pexels.com/photo/blue-pen-beside-black-smartphone-on-white-paper-196646/",
+    "photographer": "picjumbo.com",
+    "alt": "Hand-drawn website wireframes in a sketchbook beside a smartphone and keyboard",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "api-integration.jpg",
+    "pexelsId": 19805876,
+    "pageUrl": "https://www.pexels.com/photo/man-working-on-computer-in-an-office-19805876/",
+    "photographer": "Naboth Otieno",
+    "alt": "Software developer writing code across a desktop monitor and laptop",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "cloud-devops.jpg",
+    "pexelsId": 4508751,
+    "pageUrl": "https://www.pexels.com/photo/server-racks-on-data-center-4508751/",
+    "photographer": "Brett Sayles",
+    "alt": "Rows of server racks lining an aisle in a data center",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "technology-consulting.jpg",
+    "pexelsId": 5668762,
+    "pageUrl": "https://www.pexels.com/photo/professional-woman-discussing-on-white-board-5668762/",
+    "photographer": "Sora Shimazaki",
+    "alt": "Consultant sketching a strategy on a whiteboard during a meeting with clients",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "staffdem.jpg",
+    "pexelsId": 3869641,
+    "pageUrl": "https://www.pexels.com/photo/women-having-a-conversation-3869641/",
+    "photographer": "PICHA Stock",
+    "alt": "Group of colleagues talking together in a bright office corridor",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-custom-software.jpg",
+    "pexelsId": 5668845,
+    "pageUrl": "https://www.pexels.com/photo/thoughtful-black-businesswoman-working-on-project-in-office-5668845/",
+    "photographer": "Sora Shimazaki",
+    "alt": "Businesswoman thinking while working on a laptop at her office desk",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-project-planning.jpg",
+    "pexelsId": 5990265,
+    "pageUrl": "https://www.pexels.com/photo/close-up-photo-of-sticky-notes-on-whiteboard-5990265/",
+    "photographer": "cottonbro studio",
+    "alt": "Planning board with sticky notes organised into backlog and weekly columns",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-corporate-website.jpg",
+    "pexelsId": 461073,
+    "pageUrl": "https://www.pexels.com/photo/person-holding-a-cup-of-coffee-beside-macbook-461073/",
+    "photographer": "Pixabay",
+    "alt": "Laptop showing a clean website on a desk beside a cup of coffee",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "contact.jpg",
+    "pexelsId": 3727462,
+    "pageUrl": "https://www.pexels.com/photo/woman-in-black-blazer-talking-on-the-phone-3727462/",
+    "photographer": "Anna Shvets",
+    "alt": "Professional woman in glasses talking on the phone at her desk",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "start-project.jpg",
+    "pexelsId": 5466268,
+    "pageUrl": "https://www.pexels.com/photo/a-woman-and-man-working-together-5466268/",
+    "photographer": "Antoni Shkraba",
+    "alt": "Two colleagues brainstorming ideas on a whiteboard",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-automation.jpg",
+    "pexelsId": 10375911,
+    "pageUrl": "https://www.pexels.com/photo/woman-working-in-office-10375911/",
+    "photographer": "RDNE Stock project",
+    "alt": "Professional reviewing printed documents beside her laptop at a bright office desk",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-employee-software.jpg",
+    "pexelsId": 10376017,
+    "pageUrl": "https://www.pexels.com/photo/man-working-at-desk-with-computers-in-office-10376017/",
+    "photographer": "RDNE Stock project",
+    "alt": "Employee working in business software across a desktop monitor and laptop in a light-filled office",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-mobile-app.jpg",
+    "pexelsId": 11780441,
+    "pageUrl": "https://www.pexels.com/photo/a-person-holding-black-smartphone-11780441/",
+    "photographer": "Akshar Dave",
+    "alt": "Hand using a smartphone app placed over hand-drawn app wireframe sketches",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-apis.jpg",
+    "pexelsId": 2425567,
+    "pageUrl": "https://www.pexels.com/photo/cable-plugged-on-a-patch-panel-2425567/",
+    "photographer": "Brett Sayles",
+    "alt": "Neatly connected fibre cables plugged into a network patch panel",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-saas.jpg",
+    "pexelsId": 7495644,
+    "pageUrl": "https://www.pexels.com/photo/people-having-a-discussion-at-the-office-7495644/",
+    "photographer": "Moe Magners",
+    "alt": "Product team discussing a plan around a table with laptops and a wall screen",
+    "width": 1600,
+    "height": 1067
+  },
+  {
+    "file": "insight-hr-payroll.jpg",
+    "pexelsId": 6457522,
+    "pageUrl": "https://www.pexels.com/photo/black-woman-reading-information-of-important-document-6457522/",
+    "photographer": "Alexander Suhorucov",
+    "alt": "Professional reviewing employee forms and records beside a laptop",
+    "width": 1600,
+    "height": 1067
+  }
+]
