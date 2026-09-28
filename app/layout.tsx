@@ -1,6 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from "sonner";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import JsonLd from "@/components/page/JsonLd";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,26 +17,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jev Technology | Software Development & Digital Solutions",
-  description:
-    "Empowering organizations with cutting-edge web development, mobile apps, and software consultancy. Building Africa's most trusted people platform.",
-  keywords: [
-    "software development",
-    "web development",
-    "mobile app development",
-    "HR software",
-    "payroll systems",
-    "digital solutions",
-    "Africa tech",
-    "consultancy",
-  ],
-  authors: [{ name: "Jev Technology" }],
-  openGraph: {
-    title: "Jev Technology | Software Development & Digital Solutions",
-    description:
-      "Empowering organizations with cutting-edge web development, mobile apps, and software consultancy.",
-    type: "website",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — Digital Product & Software Engineering`,
+    template: `%s | ${site.name}`,
   },
+  description: site.description,
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+    url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.tagline}`,
+    description: site.description,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -43,11 +48,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <Toaster position="top-right" richColors />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Navbar />
+        <main id="main" tabIndex={-1} className="outline-none">
+          {children}
+        </main>
+        <Footer />
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+            logo: `${site.url}/brand/jev-logo.png`,
+            email: site.email,
+            telephone: site.phones[0],
+            description: site.description,
+          }}
+        />
       </body>
     </html>
   );
