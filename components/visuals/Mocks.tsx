@@ -362,11 +362,11 @@ export function MobileAppMock({ variant = "field", className }: { variant?: "fie
       </div>
       <div className="mt-3 grid grid-cols-4 gap-1.5">
         {(field ? ["Check in", "Report", "Photos", "Sync"] : ["Send", "Pay", "Save", "More"]).map((a) => (
-          <div key={a} className="flex flex-col items-center gap-1">
+          <div key={a} className="flex min-w-0 flex-col items-center gap-1">
             <span className="flex size-7 items-center justify-center rounded-full bg-canvas shadow-sm">
               <span className="size-2 rounded-full border-2 border-brand-500" />
             </span>
-            <span className="text-[7px] text-muted">{a}</span>
+            <span className="w-full truncate text-center text-[7px] text-muted">{a}</span>
           </div>
         ))}
       </div>

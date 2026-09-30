@@ -9,11 +9,11 @@ export const ogContentType = "image/png";
 let markDataUrl: Promise<string> | undefined;
 let fontData: Promise<[Buffer, Buffer]> | undefined;
 
-// Geist (SIL Open Font License) — the site's typeface, bundled for the image renderer.
+// Plus Jakarta Sans (SIL Open Font License) — the site's typeface, bundled for the image renderer.
 function fonts() {
   fontData ??= Promise.all([
-    readFile(join(process.cwd(), "assets/fonts/Geist-Regular.ttf")),
-    readFile(join(process.cwd(), "assets/fonts/Geist-SemiBold.ttf")),
+    readFile(join(process.cwd(), "assets/fonts/PlusJakartaSans-400.woff")),
+    readFile(join(process.cwd(), "assets/fonts/PlusJakartaSans-600.woff")),
   ]);
   return fontData;
 }
@@ -43,7 +43,7 @@ export async function renderOgImage({ eyebrow, title }: { eyebrow: string; title
           background: "#0b0f0e",
           backgroundImage: "radial-gradient(circle at 100% 0%, rgba(44,198,92,0.28) 0%, rgba(11,15,14,0) 55%)",
           color: "#ffffff",
-          fontFamily: "Geist",
+          fontFamily: "Plus Jakarta Sans",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
@@ -74,8 +74,8 @@ export async function renderOgImage({ eyebrow, title }: { eyebrow: string; title
     {
       ...ogSize,
       fonts: [
-        { name: "Geist", data: regular, weight: 400, style: "normal" },
-        { name: "Geist", data: semibold, weight: 600, style: "normal" },
+        { name: "Plus Jakarta Sans", data: regular, weight: 400, style: "normal" },
+        { name: "Plus Jakarta Sans", data: semibold, weight: 600, style: "normal" },
       ],
     },
   );
